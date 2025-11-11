@@ -2,39 +2,41 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Cliente</title>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <h1>Bem-vindo CLIENTE, FAÇA LOGIN</h1>
-   
-  <img src="../assets/images/BANNER.jpg" alt="Logo da Farmácia" length="500"> 
-  
-  <a href="../index.html">Voltar pro inicio</a>
-    
-    <body>
-        
-       
-        <!DOCTYPE html>
-    
-                <fieldset>
-                    <legend>PRENCHA SEUS DADOS</legend>
-    
-                    <div>
-                        <label for="email">E-mail:</label>
-                        <br>
-                        <input type="email" id="email" name="email_usuario" required>
-                    </div>
-                    <br>
-    
-                    <div>
-                        <label for="senha">Senha:</label>
-                        <br>
-                        <input type="password" id="senha" name="senha_usuario">
-                    </div>
-                    <br>
-    
-                    <body><img src="../assets/images/rodape.png" alt="Logo da Farmácia" width="1800"></body>
-    </body>
 
+    <div class="login-container">
+    
+        <div class="login-header">
+            <a href="../index.html" class="voltar-inicio">Voltar pro inicio</a> 
+            <h1>Bem-vindo CLIENTE, FAÇA LOGIN</h1>
+            <img src="../assets/images/BANNER.jpg" alt="Banner da Farmácia" width="500"> 
+        </div>
+
+        <form action="storecliente.html" method="get" class="login-form">
+            <fieldset>
+                <legend>PRENCHA SEUS DADOS</legend>
+        
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email_usuario" required>
+                </div>
+        
+                <div>
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha_usuario" required>
+                </div>
+                
+                <button type="submit">Entrar</button>
+            </fieldset>
+        </form>
+
+        <img src="../assets/images/rodape.png" alt="Rodapé da Farmácia" class="rodape-img">
+
+    </div> 
 </body>
 </html>

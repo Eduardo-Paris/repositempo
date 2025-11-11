@@ -7,50 +7,104 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+
+    <div class="cart-icon-container">
+        <img src="../assets/images/logofarmacia.png" alt="Carrinho" id="cart-icon">
+        <span id="cart-count">0</span>
+    </div>
+
     <h1>Produtos Disponíveis</h1>
 
     <div class="store-container">
         
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Paracetamol</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Paracetamol</h3>
+            <p class="price">R$ 12,50</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Dipirona</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Dipirona</h3>
+            <p class="price">R$ 8,00</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Ibuprofeno</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Ibuprofeno</h3>
+            <p class="price">R$ 15,90</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Amoxicilina</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Amoxicilina</h3>
+            <p class="price">R$ 22,00</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Loratadina</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Loratadina</h3>
+            <p class="price">R$ 18,30</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Omeprazol</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Omeprazol</h3>
+            <p class="price">R$ 14,00</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Vitamina C</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Vitamina C</h3>
+            <p class="price">R$ 25,50</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
 
         <div class="product-card">
-            <img src="../assets/img/logofarmacia.png" alt="Remédio">
-            <h3>Xarope para Tosse</h3>
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3 class="product-title">Xarope para Tosse</h3>
+            <p class="price">R$ 29,90</p>
+            <button class="btn-info">Saber Mais</button>
+            <button class="btn-add-cart">Adicionar ao Carrinho</button>
         </div>
-
+        
     </div>
+
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-info-modal">&times;</span>
+            <h2 id="modal-title">Info do Produto</h2>
+            <p id="modal-price" class="modal-price-style"></p> 
+            <p id="modal-purpose"></p> 
+            <p id="modal-description"></p> 
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart-modal">&times;</span>
+            <h2>Meu Carrinho</h2>
+            <div id="cart-items-list">
+                </div>
+            <hr>
+            <h3>Total: <span id="cart-total-price">R$ 0,00</span></h3>
+            <a href="compra.html" class="btn-checkout">Finalizar Compra</a>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
