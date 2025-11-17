@@ -1,0 +1,373 @@
+/* ============================================================
+   RESET E ESTRUTURA BÁSICA
+   ============================================================ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding-top: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ============================================================
+   WIDGET DO CARRINHO (FIXO)
+   ============================================================ */
+.cart-widget {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-icon-area {
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.cart-icon-area:hover {
+    transform: scale(1.1);
+}
+
+.cart-icon-area img {
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+#contador-carrinho {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#btn-abrir-popup-texto {
+    margin-top: 8px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.85em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#btn-abrir-popup-texto:hover {
+    background-color: #000;
+}
+
+/* ============================================================
+   GRID DE PRODUTOS
+   ============================================================ */
+.store-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.product-card {
+    background: white;
+    width: 160px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+
+.product-card h3 {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #444;
+}
+
+.price {
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-info {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.btn-add {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.btn-info:hover { background: #0069d9; }
+.btn-add:hover { background: #218838; }
+
+/* ============================================================
+   ESTILOS DOS POP-UPS (MODAIS)
+   ============================================================ */
+.fundo-popup {
+    display: none; /* PADRÃO: INVISÍVEL */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+/* CLASSE QUE O JS VAI ATIVAR PARA MOSTRAR O POP-UP */
+.fundo-popup.mostrar {
+    display: flex !important;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.janela-popup {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: aparecer 0.3s ease-out;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.fechar-x {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 20px;
+}
+
+.fechar-x:hover { color: #000; }
+
+.botoes-popup {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-finalizar {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-finalizar:hover { background: #0056b3; }
+
+/* Estilo dos Itens na lista do Carrinho */
+.item-carrinho {
+    border-bottom: 1px dashed #ccc;
+    padding: 12px 0;
+}
+
+.item-linha-topo {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.item-linha-meio {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.item-linha-fundo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.btn-remover {
+    background: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+.btn-remover:hover { background: #c82333; }
+
+/* ============================================================
+   ESTILOS DA PÁGINA DE COMPRA (Adicione ao final do style.css)
+   ============================================================ */
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Lado Esquerdo (Formulário) */
+.checkout-form {
+    flex: 2; /* Ocupa 2/3 da tela */
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Lado Direito (Resumo) */
+.checkout-summary {
+    flex: 1; /* Ocupa 1/3 da tela */
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: fit-content; /* Altura ajustável */
+}
+
+.checkout-form h2, .checkout-summary h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.checkout-form h3 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Campos do Formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+/* Botão Grande de Confirmar */
+.btn-confirmar {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn-confirmar:hover {
+    background-color: #218838;
+}
+
+.total-compra {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* Responsivo: em celular, coloca um abaixo do outro */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+    .checkout-summary {
+        order: -1; /* Coloca o resumo em cima no celular */
+    }
+}

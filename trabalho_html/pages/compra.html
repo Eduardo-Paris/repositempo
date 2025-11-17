@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Finalizar Pedido</h1>
+
+    <div class="checkout-container">
+        
+        <div class="checkout-form">
+            <h2>Seus Dados</h2>
+            <form id="form-compra">
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Ex: João Silva">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required placeholder="Ex: joao@email.com">
+                </div>
+
+                <h3>Endereço de Entrega</h3>
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" required placeholder="00000-000">
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Rua / Avenida</label>
+                    <input type="text" id="endereco" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" required>
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label for="complemento">Complemento (Opcional)</label>
+                        <input type="text" id="complemento">
+                    </div>
+                </div>
+
+                <h3>Forma de Pagamento</h3>
+                <div class="form-group">
+                    <select id="pagamento" required style="width: 100%; padding: 10px;">
+                        <option value="">Selecione...</option>
+                        <option value="cartao">Cartão de Crédito</option>
+                        <option value="pix">PIX</option>
+                        <option value="boleto">Boleto Bancário</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-confirmar">CONFIRMAR COMPRA</button>
+                <a href="loja.html" style="display:block; text-align:center; margin-top:15px; color:#666;">Voltar para a Loja</a>
+            </form>
+        </div>
+
+        <div class="checkout-summary">
+            <h2>Resumo do Pedido</h2>
+            <div id="lista-resumo">
+                </div>
+            <hr>
+            <div class="total-compra">
+                Total: <span id="total-final">R$ 0,00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SCRIPT ESPECÍFICO DESTA PÁGINA
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Carrega o carrinho salvo
+            const carrinho = JSON.parse(localStorage.getItem('meuCarrinhoLoja')) || [];
+            const listaResumo = document.getElementById('lista-resumo');
+            const totalFinal = document.getElementById('total-final');
+            let total = 0;
+
+            // 2. Verifica se está vazio
+            if (carrinho.length === 0) {
+                listaResumo.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                document.querySelector('.btn-confirmar').disabled = true;
+                document.querySelector('.btn-confirmar').style.background = '#ccc';
+                document.querySelector('.btn-confirmar').textContent = 'Carrinho Vazio';
+            } else {
+                // 3. Preenche a lista visual
+                carrinho.forEach(item => {
+                    let subtotal = item.preco * item.qtd;
+                    total += subtotal;
+
+                    const div = document.createElement('div');
+                    div.style.cssText = 'display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;';
+                    div.innerHTML = `
+                        <span>${item.qtd}x ${item.nome}</span>
+                        <span>R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+                    `;
+                    listaResumo.appendChild(div);
+                });
+            }
+
+            // 4. Atualiza o total
+            totalFinal.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+
+            // 5. Lógica do Botão Confirmar
+            document.getElementById('form-compra').addEventListener('submit', (e) => {
+                e.preventDefault(); // Não recarrega a página
+                
+                // Aqui você enviaria os dados para um servidor real
+                alert('Obrigado! Sua compra foi realizada com sucesso.');
+                
+                // Limpa o carrinho e volta para a loja
+                localStorage.removeItem('meuCarrinhoLoja');
+                window.location.href = 'loja.html';
+            });
+        });
+    </script>
+</body>
+</html>

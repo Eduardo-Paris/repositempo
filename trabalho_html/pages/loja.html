@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cart-widget">
+        <div class="cart-icon-area" id="btn-abrir-popup-icone">
+            <img src="../assets/images/carrinho.png" alt="Carrinho">
+            <span id="contador-carrinho">0</span>
+        </div>
+        <button id="btn-abrir-popup-texto">Checar Carrinho</button>
+    </div>
+
+    <h1>Produtos Disponíveis</h1>
+
+    <div class="store-container">
+        
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Paracetamol</h3>
+            <p class="price">R$ 12,50</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Paracetamol" 
+                    data-preco="12.50" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Indicado para redução de febre e alívio temporário de dores leves a moderadas.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Paracetamol" data-preco="12.50">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Dipirona</h3>
+            <p class="price">R$ 8,00</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Dipirona" 
+                    data-preco="8.00" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Analgésico e antipirético, muito utilizado para dores de cabeça e febre.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Dipirona" data-preco="8.00">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Ibuprofeno</h3>
+            <p class="price">R$ 15,90</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Ibuprofeno" 
+                    data-preco="15.90" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Anti-inflamatório potente para dores musculares, garganta e inflamações gerais.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Ibuprofeno" data-preco="15.90">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Vitamina C</h3>
+            <p class="price">R$ 25,50</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Vitamina C" 
+                    data-preco="25.50" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Suplemento essencial para o fortalecimento do sistema imunológico.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Vitamina C" data-preco="25.50">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Amoxicilina</h3>
+            <p class="price">R$ 22,00</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Amoxicilina" 
+                    data-preco="22.00" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Antibiótico usado para tratar diversos tipos de infecções bacterianas.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Amoxicilina" data-preco="22.00">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Loratadina</h3>
+            <p class="price">R$ 18,30</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Loratadina" 
+                    data-preco="18.30" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Antialérgico indicado para o alívio dos sintomas da rinite alérgica.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Loratadina" data-preco="18.30">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Omeprazol</h3>
+            <p class="price">R$ 14,00</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Omeprazol" 
+                    data-preco="14.00" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Medicamento para proteger o estômago contra acidez, gastrite e refluxo.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Omeprazol" data-preco="14.00">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product-card">
+            <img src="../assets/images/xarope.png" alt="Remédio">
+            <h3>Xarope Tosse</h3>
+            <p class="price">R$ 29,90</p>
+            
+            <button class="btn-info" 
+                    data-titulo="Xarope Tosse" 
+                    data-preco="29.90" 
+                    data-imagem="../assets/images/xarope.png"
+                    data-texto="Expectorante que ajuda a eliminar o catarro e aliviar a tosse.">Saber Mais</button>
+            
+            <button class="btn-add" data-nome="Xarope Tosse" data-preco="29.90">Adicionar ao Carrinho</button>
+        </div>
+
+    </div>
+
+    <div id="info-modal" class="fundo-popup">
+        <div class="janela-popup">
+            <span class="fechar-x" id="btn-fechar-info">&times;</span>
+            
+            <h2 id="modal-titulo"></h2>
+            
+            <div style="text-align: center; margin: 15px 0;">
+                <img id="modal-img" src="" alt="Produto" style="width: 100px; height: 100px; object-fit: contain;">
+            </div>
+            
+            <p id="modal-preco" style="text-align: center; color: green; font-weight: bold; font-size: 1.3em; margin: 5px 0;"></p>
+            <p id="modal-texto" style="text-align: center; color: #555; line-height: 1.5;"></p>
+            
+            <div class="botoes-popup" style="justify-content: center;">
+                <button id="btn-fechar-info-botao" style="background: #333; color: white; padding: 10px 30px; border: none; border-radius: 5px; cursor: pointer;">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="carrinho-modal" class="fundo-popup">
+        <div class="janela-popup">
+            <span class="fechar-x" id="btn-fechar-carrinho-x">&times;</span>
+            
+            <h2>Meu Carrinho</h2>
+            
+            <div id="lista-itens-popup">
+                </div>
+            
+            <hr>
+            <h3 class="total-popup" style="text-align: right; margin-top: 10px;">
+                Total: <span id="preco-total-popup" style="color: green;">R$ 0,00</span>
+            </h3>
+            
+            <div class="botoes-popup">
+                <button id="btn-fechar-carrinho-texto" style="background: #666; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Continuar Comprando</button>
+                <a href="compra.html" class="btn-finalizar">Finalizar Compra</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
