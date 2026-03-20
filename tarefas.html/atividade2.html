@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Exercícios JS</title>
+    <style>
+       
+        body {
+            background-color: #c0c0c0; 
+            font-family: "Courier New", Courier, monospace;
+            padding: 20px;
+        }
+
+        h1 {
+            text-decoration: underline;
+        }
+
+        .container {
+            border: 2px solid black;
+            padding: 20px;
+            background-color: #ffffff;
+            width: fit-content;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+       
+        button {
+            background-color: #e0e0e0;
+            border: 2px solid #000000;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        button:active {
+            background-color: #a0a0a0;
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Exercícios de Lógica</h1>
+        <p>Escolha uma opção abaixo:</p>
+        
+
+        <div class="menu">
+            <button onclick="jogoAdivinhacao()">1. Jogo de Adivinhação</button>
+            <button onclick="jokenpo()">2. Pedra, Papel ou Tesoura</button>
+            <button onclick="tabuada()">3. Gerar Tabuada</button>
+            <button onclick="desenharTriangulo()">4. Desenhar Triângulo</button>
+            <button onclick="somaSerie()">5. Calcular Soma da Série</button>
+        </div>
+
+        <p class="footer">Dica: Resultados  detalhados estao no Console (F12)</p>
+    </div>
+
+    <script>
+
+        // 1 - Jogo de Adivinhação
+        function jogoAdivinhacao() {
+            const numeroSecreto = Math.floor(Math.random() * 20) + 1;
+            let palpite = 0;
+            alert("O computador pensou em um número de 1 a 20. Tente adivinhar!");
+
+            while (palpite !== numeroSecreto) {
+                palpite = parseInt(prompt("Qual seu palpite?"));
+                if (isNaN(palpite)) break;
+
+                if (palpite < numeroSecreto) {
+                    alert("Dica: O número secreto é MAIOR!");
+                } else if (palpite > numeroSecreto) {
+                    alert("Dica: O número secreto é MENOR!");
+                }
+            }
+            if (palpite === numeroSecreto) alert("🎉 Parabéns! Você acertou.");
+        }
+
+        // 2 - Pedra, Papel ou Tesoura/jokenpo
+        function jokenpo() {
+            const opcoes = ["pedra", "papel", "tesoura"];
+            const escolhaUsuario = prompt("Escolha pedra, papel ou tesoura:").toLowerCase();
+            
+            if (!opcoes.includes(escolhaUsuario)) {
+                alert("Opção inválida!");
+                return;
+            }
+
+            const escolhaComputador = opcoes[Math.floor(Math.random() * 3)];
+            let resultado = "";
+
+            if (escolhaUsuario === escolhaComputador) {
+                resultado = "Empate!";
+            } else if (
+                (escolhaUsuario === "pedra" && escolhaComputador === "tesoura") ||
+                (escolhaUsuario === "papel" && escolhaComputador === "pedra") ||
+                (escolhaUsuario === "tesoura" && escolhaComputador === "papel")
+            ) {
+                resultado = "Você Venceu! 🏆";
+            } else {
+                resultado = "Você Perdeu! ❌";
+            }
+
+            console.log("--- JOKENPÔ ---");
+            console.log(`Você: ${escolhaUsuario} | Computador: ${escolhaComputador}`);
+            console.log(`Resultado: ${resultado}`);
+            alert(`Computador escolheu: ${escolhaComputador}\n${resultado}`);
+        }
+
+        // 3 - Tabuada
+        function tabuada() {
+            const num = parseInt(prompt("Digite o número para a tabuada:"));
+            if (isNaN(num)) return;
+
+            console.log(`--- TABUADA DO ${num} ---`);
+            for (let i = 1; i <= 10; i++) {
+                console.log(`${num} x ${i} = ${num * i}`);
+            }
+            alert("Tabuada gerada no Console (F12)!");
+        }
+
+        // 4 - Triângulo
+        function desenharTriangulo() {
+            const linhas = parseInt(prompt("Digite o número de linhas do triângulo:"));
+            if (isNaN(linhas)) return;
+
+            console.log("--- TRIÂNGULO ---");
+            for (let i = 1; i <= linhas; i++) {
+                console.log("*".repeat(i));
+            }
+            alert("Triângulo desenhado no Console (F12)!");
+        }
+
+        // minha sSoma da Série
+        function somaSerie() {
+            const n = parseInt(prompt("Digite a quantidade de termos (ex: 5):"));
+            if (isNaN(n)) return;
+
+            let termo = "";
+            let soma = 0;
+            let sequencia = [];
+
+            for (let i = 1; i <= n; i++) {
+                termo += "1";
+                sequencia.push(termo);
+                soma += Number(termo);
+            }
+
+            const resultadoTexto = sequencia.join(" + ");
+            console.log("--- SOMA DA SÉRIE ---");
+            console.log(resultadoTexto);
+            console.log(`A soma é: ${soma}`);
+            alert(`${resultadoTexto}\nA soma é: ${soma.toLocaleString('pt-BR')}`);
+        }
+    </script>
+</body>
+</html>
